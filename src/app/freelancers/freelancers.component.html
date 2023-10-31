@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped" >
+    <thead>
+        <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date Inscription</th> <th>Domaine</th><th>Image</th> </tr>
+    </thead>
+    
+    <tbody *ngFor="let freelancer of freelancers">
+        <tr >
+            <td>{{freelancer.idFreelancer}}</td>
+            <td>{{freelancer.nomFreelancer}}</td>
+            <td>{{freelancer.salaireFreelancer}}</td>
+            <td>{{freelancer.dateinscription | date:'dd/MM/yyyy'}}</td>
+        <td>{{freelancer.domaine.nomDom}}</td> 
+        <td><img class="card-img-top img-responsive"
+            src="{{apiurl+'/image/loadfromFS/'+freelancer.idFreelancer}}"
+            style = "height :50px;width:100px">
+            </td>
+            
+            <td><a  *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerFreelancer(freelancer)">Supprimer</a></td>
+            <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateFreelancer',freelancer.idFreelancer]">Modifier</a></td>
+            </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+ <div class="container">
+    <!--<form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Freelancer en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+        </form>-->
+    <!--<form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Freelancer en tapant</label>
+        <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">//tous la valeur de label sappel search term pour acceder a la valeur .value 
+        </div>
+        </form> -->
+   <!--  <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Freelancer</label>
+        <input type="text" class="form-control" [(ngModel)]="nomFreelancer" name="nomFreelancer" class="form-control">
+        <button type="submit" (click)="rechercherFreels()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+        </div>
+        </form> -->
+        <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Freelancer en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+        </form>
+            
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped" >
+    <thead>
+        <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date Inscription</th> <th>Domaine</th> </tr>
+    </thead>
+    
+    <tbody *ngFor="let freelancer of freelancers  | searchFilter: searchTerm  "><!--searchFilter: searchTerm-->
+        <tr >
+            <td>{{freelancer.idFreelancer}}</td>
+            <td>{{freelancer.nomFreelancer}}</td>
+            <td>{{freelancer.salaireFreelancer}}</td>
+            <td>{{freelancer.dateinscription | date:'dd/MM/yyyy'}}</td>
+        <td>{{freelancer.domaine.nomDom}}</td> 
+            <!-- <td><a class="btn btn-danger" (click)="supprimerFreelancer(freelancer)">Supprimer</a></td>
+            <td><a class="btn btn-success" [routerLink]="['/updateFreelancer',freelancer.idFreelancer]">Modifier</a></td> -->
+            </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+

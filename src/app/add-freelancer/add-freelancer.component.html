@@ -1,0 +1,54 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un Freelancer :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Freelancer</label>
+        <input type="text" [(ngModel)]="newFreelancer.idFreelancer"
+        name="idFreelancer" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom Freelancer</label>
+        <input type="text"[(ngModel)]= "newFreelancer.nomFreelancer"
+        name="nomFreelancer" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Salaire Freelancer</label>
+        <input type="number" [(ngModel)]= "newFreelancer.salaireFreelancer"
+        name="salaireFreelancer" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date Inscription</label>
+        <input type="date" [(ngModel)]= "newFreelancer.dateinscription"
+        name="dateinscription" class="form-control">
+        </div>
+         <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Domaine</label>
+            <select class="form-control form-control-lg" id="idDom" name="idDom"
+            [(ngModel)]="newIdDom">
+             <option *ngFor="let dom of domaines" [value]="dom.idDom" >
+             {{dom.nomDom}}
+            </option>
+            </select>
+            </div> 
+            <div class="col-sm-16 col-md-16 col-lg-16">
+                <label class="mb-2">Image :</label>
+                <input type="file" (change)="onImageUpload($event)"
+                name="logo" class="form-control">
+                </div>
+                <!--pour previsualiser limage avant de l ajouter-->
+                <div class="col-sm-16 col-md-16 col-lg-16">
+                    <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+                    style="width: 500px; height: 300px" />
+                    </div>
+                                    
+        <div class="mt-2">
+        <button type="submit" (click)="addFreelancer()"class="btn btn-success">Ajouter</button>
+        <div>
+            <h3>{{message}}</h3>
+        </div>
+        </div>
+        </form>
+        </div>
+            

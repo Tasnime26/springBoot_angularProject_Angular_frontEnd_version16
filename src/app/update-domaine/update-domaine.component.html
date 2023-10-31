@@ -1,0 +1,17 @@
+<form>
+    <div [hidden]="ajout">
+    <label>ID domaine</label>
+    <input type="text"[readonly]="!ajout" [(ngModel)]="domaine.idDom" name="iddomaine" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Catégorie</label>
+    <input type="text" [(ngModel)]="domaine.nomDom" name="nomdomaine" class="form-control"
+    placeholder="Entrez un nom de domaine...">
+    </div>
+    <div class="mt-2">
+     <button type="submit" [disabled]="!domaine.nomDom" class="btn btn-success" 
+    (click)="saveDomaine()"
+    >{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+    </form>
+    

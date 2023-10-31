@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Domaines </label>
+        <select class="form-control form-control-lg" id="idDom" name="idDom"
+        [(ngModel)]="IdDomaine" (change)="onChange()">
+        <option *ngFor="let dom of domaines" value="{{dom.idDom}}">
+        {{dom.nomDom}}
+         </option>
+        </select>
+        </div>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped" >
+    <thead>
+        <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date Inscription</th> <th>Domaine</th> </tr>
+    </thead>
+    
+    <tbody *ngFor="let freelancer of freelancers">
+        <tr >
+            <td>{{freelancer.idFreelancer}}</td>
+            <td>{{freelancer.nomFreelancer}}</td>
+            <td>{{freelancer.salaireFreelancer}}</td>
+            <td>{{freelancer.dateinscription | date:'dd/MM/yyyy'}}</td>
+        <td>{{freelancer.domaine.nomDom}}</td> 
+            <!-- <td><a class="btn btn-danger" (click)="supprimerFreelancer(freelancer)">Supprimer</a></td>
+            <td><a class="btn btn-success" [routerLink]="['/updateFreelancer',freelancer.idFreelancer]">Modifier</a></td> -->
+            </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+</div>
