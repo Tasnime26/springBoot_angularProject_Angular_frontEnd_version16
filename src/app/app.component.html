@@ -18,8 +18,10 @@
 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 Freelancers
 </a>
+   
 <div class="dropdown-menu">
 <a *ngIf="authService.isAdmin()"  class="dropdown-item" routerLink="/add-freelancer">Ajouter</a>
+<a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/listeUsers">Liste users</a>
 <a class="dropdown-item" href="#">Lister</a>
 <a class="dropdown-item" routerLink="/rechercheParDomaine" >Recherche Par Domaine</a>
 <a class="dropdown-item" routerLink="/rechercheParNom" >Recherche Par Nom</a>

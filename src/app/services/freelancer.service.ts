@@ -7,6 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiURL } from '../config';
 import { DomaineWrapper } from '../model/DomaineWrapped.model';
 import { Image } from '../model/image.model';
+import { User } from '../model/user.model';
+import { Role } from '../model/role.model';
 const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'} )
 };
@@ -16,7 +18,7 @@ const httpOptions = {
 })
 export class FreelancerService {
   apiURLDom: string = 'http://localhost:8080/freelancer/dom';
-
+  apiURLUsers: string = 'http://localhost:8081/users';
   freelancers!: Freelancer[];//un tableau de freelancer
   //freelancer! :Freelancer;//!on peut accepter les undefined dans cette variable
   //domaines :Domaine[];
@@ -178,5 +180,17 @@ return this.http.get<Freelancer[]>(url)
               const url = `${apiURL + '/image/uploadFS'}/${idFreel}`;
               return this.http.post(url, imageFormData);
               }
-
+              listeUser(): Observable<User[]> {
+                return this.http.get<User[]>(this.apiURLUsers+ "/all");
+              }
+              addUser(user: any) {
+                return this.http.post(`${this.apiURLUsers}/add`, user);
+              }
+          
+              getAllRoles() {
+                return this.http.get(`${this.apiURLUsers}/allRoles`);
+              }
+              findRoleById(id: number): Observable<Role> {
+                const url = `${this.apiURLUsers}/findRoleById/${id}`;
+                return this.http.get<Role>(url);}
 }

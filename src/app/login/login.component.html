@@ -1,28 +1,34 @@
+<!-- login.component.html -->
+
 <div class="container mt-5">
-    <div class="row justify-content-md-center">
-    <div class="col-md-4">
-            <div class="alert alert-danger" *ngIf="err==1">
-                <strong>login ou mot de passe erronés..</strong>
-                </div>  
-    <form >
-    <div class="form-group">
-    <label >Nom Utilisateur :</label>
-    <input type="text" name="username"
-    class="form-control"
-    [(ngModel)]="user.username" >
+  <div class="row">
+    <!-- Image Section -->
+    <div class="col-md-6">
+      <!-- Your image goes here -->
+      <img src="assets/sign in.png" alt="Image" class="img-fluid mb-3">
     </div>
-    <div class="form-group">
-    <label >Mot de passe :</label>
-    <input type="password" name="password"
-    [(ngModel)]="user.password" class="form-control">
+
+    <!-- Form Section -->
+    <div class="col-md-6" style="margin-top: 20px;">
+      <div class="alert alert-danger" *ngIf="err==1">
+        <strong>{{message}}</strong>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label>Nom Utilisateur :</label>
+          <input type="text" name="username" class="form-control" [(ngModel)]="user.username">
+        </div>
+
+        <div class="form-group">
+          <label>Mot de passe :</label>
+          <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
+        </div>
+        <p>Vous n'avez pas un compte? <a routerLink="/register">S'inscrire </a></p>
+        <div class="row justify-content-md-center">
+          <button type="button" (click)="onLoggedin()" class="btn btn-success">Connexion</button>
+        </div>
+      </form>
     </div>
-    <div class="row justify-content-md-center">
-    <button type="button" (click)="onLoggedin()"
-    class="btn btn-success">Connexion</button>
-    </div>
-    
-    </form>
-    
-    </div>
-    </div>
-    </div>
+  </div>
+</div>

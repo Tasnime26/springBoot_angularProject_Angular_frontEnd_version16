@@ -16,7 +16,13 @@ import { UpdateDomaineComponent } from './update-domaine/update-domaine.componen
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { TokenInterceptor } from './services/token.interceptor';
-
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VerifEmailComponent } from './verif-email/verif-email.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListeUserComponent } from './liste-user/liste-user.component';
+import { UserRoleComponent } from './user-role/user-role.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +35,20 @@ import { TokenInterceptor } from './services/token.interceptor';
     ListeDomainesComponent,
     UpdateDomaineComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    RegisterComponent,
+    VerifEmailComponent,
+    ListeUserComponent,
+    UserRoleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    
+    ReactiveFormsModule, //deja ista3mltou min 9bal il va faire le controle de valideter de donner en temps reel 
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS,

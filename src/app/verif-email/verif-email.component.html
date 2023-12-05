@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div class="row">
+      <!-- Image Section -->
+      <div class="col-md-6">
+        <!-- Your image goes here -->
+        <!-- Adjust the image source and alt text accordingly -->
+        <img src="assets/code.png" alt="Image" class="img-fluid mb-3">
+      </div>
+  
+      <!-- Form Section -->
+      <div class="col-md-6">
+        <div class="col-md-8">
+          <div class="alert alert-danger" *ngIf="err!=''">
+            <strong>{{err}}</strong>
+          </div>
+          <form>
+            <div class="txt_field">
+              <label>Veuillez entrer le code envoyé par mail</label>
+              <input type="text" name="code" [(ngModel)]="code" class="form-control" placeholder="Code de confirmation">
+            </div>
+            <button type="button" class="btn btn-success mt-3" (click)="onValidateEmail()">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

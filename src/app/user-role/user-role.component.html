@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h4 class="text-center">User Role Management of {{ User.username }}</h4>
+    </div>
+    <div class="card-body">
+      <form>
+        
+        <!-- Removed the username input field -->
+        
+        <div class="mb-3">
+          <label for="currentRole" class="form-label">Current Role</label>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let r of User.roles">
+                <td>{{r.role}}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="removeRoleFromUsers(r.role_id)">
+                    <img width="20" height="20" src="https://img.icons8.com/color/48/delete-forever.png" alt="delete-forever"/> Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mb-3">
+          <label for="roleSelect" class="form-label">Select Role to Add</label>
+          <select [(ngModel)]="idOfRole" name="roleSelect" class="form-control">
+            <option *ngFor="let rr of roles" [ngValue]="rr">{{rr.role}}</option>
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-success" (click)="addRoleToUser()">Add Role for this User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

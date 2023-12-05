@@ -9,6 +9,10 @@ import { ListeDomainesComponent } from './liste-domaines/liste-domaines.componen
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { FreelancerGuard } from './freelancer.guard';
+import { RegisterComponent } from './register/register.component';
+import { VerifEmailComponent } from './verif-email/verif-email.component';
+import { ListeUserComponent } from './liste-user/liste-user.component';
+import { UserRoleComponent } from './user-role/user-role.component';
 const routes: Routes = [
 {path:"freelancers", component: FreelancersComponent},
 {path:"add-freelancer", component: AddFreelancerComponent,  canActivate:[FreelancerGuard]},
@@ -17,10 +21,12 @@ const routes: Routes = [
 {path: "rechercheParNom", component : RechercheParNomComponent},
 {path: "ListeDomaines", component : ListeDomainesComponent},
 {path: 'login', component: LoginComponent},
+{path: 'register', component: RegisterComponent},
 {path: 'app-forbidden', component: ForbiddenComponent},
-{ path: "", redirectTo: "freelancers", pathMatch: "full" }
-
-
+{ path: "", redirectTo: "freelancers", pathMatch: "full" },
+{ path: 'verifEmail', component: VerifEmailComponent },
+{ path: 'listeUsers' , component:ListeUserComponent, canActivate: [FreelancerGuard]},
+{ path: 'add-role-user/:id', component: UserRoleComponent },
 ];
 
 @NgModule({
